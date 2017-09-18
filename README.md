@@ -19,7 +19,7 @@ The following **bonus** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img src='https://imgur.com/a/51pCJ' width="600" />
+<img src='https://imgur.com/a/TWElF.gif' width="600" />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
