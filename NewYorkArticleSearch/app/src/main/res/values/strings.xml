@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">New York Article Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="search">Enter Search Query</string>
+    <string name="buttonSearch">SEARCH</string>
+    <string name="title">Title</string>
+    <string name="title_activity_filtered">Filter</string>
+    <string name="date">Begin Date</string>
+    <string name="sort">Sort</string>
+    <string name="desk">News Desk Values</string>
+    <string name="Arts">Arts</string>
+    <string name="Fashion">Health</string>
+    <string name="Sports">sports</string>
+    <string name="sort_order"> SortOrder</string>
+    <string name="SAVE">SAVE</string>
+    <string name="datehint">Enter date</string>
+
+</resources>
