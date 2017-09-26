@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -45,7 +47,7 @@ public class SearchActivity extends AppCompatActivity {
     private String date = new String();
     private ArrayList<String> news = new ArrayList<>();
     private String order = new String();
-
+    private  SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +100,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void loadArticles(View view,int page) {
         if(isNetworkAvailable() && isOnline()) {
-            String query = etQuery.getText().toString();
+            String query = searchView.getQuery().toString();
             AsyncHttpClient client = new AsyncHttpClient();
             String url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
             RequestParams params = new RequestParams();
@@ -150,7 +152,25 @@ public class SearchActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_search, menu);
-        return true;
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+
+        searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                onArticleSearch(searchView);
+                searchView.clearFocus();
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override

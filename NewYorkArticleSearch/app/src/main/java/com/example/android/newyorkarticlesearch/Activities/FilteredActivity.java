@@ -38,7 +38,7 @@ public class FilteredActivity extends AppCompatActivity  implements DatePickerDi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtered);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_filter);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setupViews();
         btnSave.setOnClickListener(new View.OnClickListener() {
